@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinUISharedSizeGroup (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinUISharedSizeGroup (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

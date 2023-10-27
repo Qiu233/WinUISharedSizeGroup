@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="WinUISharedSizeGroup.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUISharedSizeGroup"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:h="using:WinUISharedSizeGroup.Helpers"
+    mc:Ignorable="d">
+
+    <ListView ItemsSource="{x:Bind DataCollection}" h:ColumnSharedSizeHelper.IsSharedSizeScope="True"
+              Width="400" VerticalAlignment="Center">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Grid ColumnDefinitions="Auto,*">
+                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" h:ColumnSharedSizeHelper.SharedSizeGroup="SampleGroup"/>
+                    <TextBox Grid.Column="1" Text="{Binding Salary}"/>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</Window>
