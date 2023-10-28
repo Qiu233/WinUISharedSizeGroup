@@ -17,7 +17,7 @@ public static class ColumnSharedSizeHelper
 
 	public static readonly DependencyProperty GroupsProperty =
 		DependencyProperty.RegisterAttached(nameof(ColumnSharedSizeGroup), typeof(Dictionary<string, ColumnSharedSizeGroup>), typeof(UIElement),
-			new PropertyMetadata(new Dictionary<string, ColumnSharedSizeGroup>()));
+			new PropertyMetadata(null));
 
 	private static readonly DependencyProperty SharedSizeGroupProperty =
 		DependencyProperty.RegisterAttached("SharedSizeGroup", typeof(string), typeof(UIElement), new PropertyMetadata(null));
@@ -25,6 +25,11 @@ public static class ColumnSharedSizeHelper
 	public static Dictionary<string, ColumnSharedSizeGroup> GetGroups(DependencyObject o)
 	{
 		return (Dictionary<string, ColumnSharedSizeGroup>)o.GetValue(GroupsProperty);
+	}
+	
+	public static void SetGroups(DependencyObject o, Dictionary<string, ColumnSharedSizeGroup> groups)
+	{
+		o.SetValue(GroupsProperty, groups);
 	}
 
 	public static void SetIsSharedSizeScope(DependencyObject o, bool group) => o.SetValue(IsSharedSizeScopeProperty, group);

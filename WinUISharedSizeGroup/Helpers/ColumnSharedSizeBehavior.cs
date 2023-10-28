@@ -48,6 +48,11 @@ public class ColumnSharedSizeBehavior : Behavior<FrameworkElement>
 		if (!ColumnSharedSizeHelper.GetIsSharedSizeScope(p))
 			return;
 		var groups = ColumnSharedSizeHelper.GetGroups(p);
+		if(groups is null)
+		{
+			groups = new();
+			ColumnSharedSizeHelper.SetGroups(p, groups);
+		}
 		if (!groups.ContainsKey(SharedSizeGroup))
 			groups[SharedSizeGroup] = new ColumnSharedSizeGroup();
 		groups[SharedSizeGroup].Update(o);
